@@ -6,6 +6,7 @@ import CustomButton from '../components/core/homePage/CustomButton';
 import banner from '../assets/Images/banner.mp4'
 import CodeBlocks from '../components/core/homePage/CodeBlocks';
 import Footer from '../components/core/homePage/Footer';
+import TimelineSection from '../components/core/homePage/TimelineSection';
 const Home = () => {
     return (
         <div>
@@ -109,6 +110,36 @@ const Home = () => {
 
 
                 </div>
+            </div>
+            {/* Section 2 */}
+        <div className=' bg-pure-greys-5 text-richblack-700'>
+                <div className='relative flex items-center justify-center'>
+                    <div className='homePage_bg h-[333px]'></div>
+                    <div>
+
+                    </div>
+                    <div className=' max-w-[11/12] absolute flex gap-4'>
+                         <CustomButton active={true} linkTo={'/courses'}>
+                            <p>Explore Full Catalog</p>
+                            <FaArrowRight/>
+                         </CustomButton>
+                         <CustomButton active={false} linkTo={'/courses'}>
+                            <p>Learn More</p>                          
+                         </CustomButton>
+                    </div>
+                </div>
+                <div className='w-8/12  flex mx-auto justify-center gap-12 py-12 '>
+                        <div>
+                            <h1 className='font-bold text-3xl'>Get the skills you need for a <HighlightText text='job that is in demand.'/></h1>
+                        </div>
+                        <div className='flex flex-col gap-8'>
+                            <p className=' text-richblack-400 font-bold'>The modern StudyNotion is the dictates its own terms. Today, to be a competitive specialist requires more than professional skills</p>
+                            <CustomButton active={true} linkTo={'/signup'}>Learn More</CustomButton>
+                        </div>
+
+                </div>
+                <TimelineSection/>
+
             </div>
             {/* Footer Section */}
             <div>
