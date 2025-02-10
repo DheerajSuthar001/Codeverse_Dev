@@ -5,8 +5,11 @@ import HighlightText from '../components/core/homePage/HighlightText';
 import CustomButton from '../components/core/homePage/CustomButton';
 import banner from '../assets/Images/banner.mp4'
 import CodeBlocks from '../components/core/homePage/CodeBlocks';
-import Footer from '../components/core/homePage/Footer';
+import Footer from '../components/core/common/Footer';
 import TimelineSection from '../components/core/homePage/TimelineSection';
+import LearningSection from '../components/core/homePage/LearningSection';
+import InstructorSection from '../components/core/homePage/InstructorSection';
+import ExploreMore from '../components/core/homePage/ExploreMore';
 const Home = () => {
     return (
         <div>
@@ -51,18 +54,18 @@ const Home = () => {
                         position={'flex-row'}
                         heading={<div>
                             Start <HighlightText text='coding potential' /> with our online courses.
-                        </div>} 
-                        subheading='Our courses are designed and taught by industry experts who have years of experience in coding and are passionate about sharing their knowledge with you.' 
+                        </div>}
+                        subheading='Our courses are designed and taught by industry experts who have years of experience in coding and are passionate about sharing their knowledge with you.'
                         custombutton1={{
-                            active:true,
-                            linkTo:`/signup`,
-                            text:'Try it Yourself'
-                        }} 
+                            active: true,
+                            linkTo: `/signup`,
+                            text: 'Try it Yourself'
+                        }}
                         custombutton2={{
-                            active:false,
-                            linkTo:`/signup`,
-                            text:'Learn More'
-                        }} 
+                            active: false,
+                            linkTo: `/signup`,
+                            text: 'Learn More'
+                        }}
                         codeblock={`<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -73,26 +76,26 @@ const Home = () => {
     <header> <h1>Welcome to My Website</h1></header>
     <nav><ul>
         <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>`} 
+        <li><a href="#">About</a></li>`}
                         codecolor={'text-yellow-100'}
 
                     />
                     <CodeBlocks
                         position={'flex-row-reverse'}
                         heading={<div>
-                            Start <HighlightText text='coding in seconds.' /> 
-                        </div>} 
+                            Start <HighlightText text='coding in seconds.' />
+                        </div>}
                         subheading={`Go ahead, give it a try. Our hands-on learning environment means you'll be writing real code from your very first lesson`}
                         custombutton1={{
-                            active:true,
-                            linkTo:`/signup`,
-                            text:'Continue Lessons'
-                        }} 
+                            active: true,
+                            linkTo: `/signup`,
+                            text: 'Continue Lessons'
+                        }}
                         custombutton2={{
-                            active:false,
-                            linkTo:`/signup`,
-                            text:'Learn More'
-                        }} 
+                            active: false,
+                            linkTo: `/signup`,
+                            text: 'Learn More'
+                        }}
                         codeblock={`<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -103,47 +106,56 @@ const Home = () => {
     <header> <h1>Welcome to My Website</h1></header>
     <nav><ul>
         <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>`} 
+        <li><a href="#">About</a></li>`}
                         codecolor={'text-yellow-100'}
 
                     />
 
 
                 </div>
+
+                <ExploreMore />
+
+
             </div>
             {/* Section 2 */}
-        <div className=' bg-pure-greys-5 text-richblack-700'>
+            <div className=' bg-pure-greys-5 text-richblack-700 '>
                 <div className='relative flex items-center justify-center'>
                     <div className='homePage_bg h-[333px]'></div>
                     <div>
 
                     </div>
                     <div className=' max-w-[11/12] absolute flex gap-4'>
-                         <CustomButton active={true} linkTo={'/courses'}>
+                        <CustomButton active={true} linkTo={'/courses'}>
                             <p>Explore Full Catalog</p>
-                            <FaArrowRight/>
-                         </CustomButton>
-                         <CustomButton active={false} linkTo={'/courses'}>
-                            <p>Learn More</p>                          
-                         </CustomButton>
+                            <FaArrowRight />
+                        </CustomButton>
+                        <CustomButton active={false} linkTo={'/courses'}>
+                            <p>Learn More</p>
+                        </CustomButton>
                     </div>
                 </div>
                 <div className='w-8/12  flex mx-auto justify-center gap-12 py-12 '>
-                        <div>
-                            <h1 className='font-bold text-3xl'>Get the skills you need for a <HighlightText text='job that is in demand.'/></h1>
-                        </div>
-                        <div className='flex flex-col gap-8'>
-                            <p className=' text-richblack-400 font-bold'>The modern StudyNotion is the dictates its own terms. Today, to be a competitive specialist requires more than professional skills</p>
-                            <CustomButton active={true} linkTo={'/signup'}>Learn More</CustomButton>
-                        </div>
+                    <div>
+                        <h1 className='font-bold text-3xl'>Get the skills you need for a <HighlightText text='job that is in demand.' /></h1>
+                    </div>
+                    <div className='flex flex-col gap-8'>
+                        <p className=' text-richblack-400 font-bold'>The modern StudyNotion is the dictates its own terms. Today, to be a competitive specialist requires more than professional skills</p>
+                        <CustomButton active={true} linkTo={'/signup'}>Learn More</CustomButton>
+                    </div>
 
                 </div>
-                <TimelineSection/>
+                <TimelineSection />
+                <LearningSection />
 
+            </div>
+            {/* Section 3 */}
+            <div className='w-8/12 mx-auto max-w-maxContent flex-col items-center justify-between gap-8 first-letter bg-richblack-900 text-white'>
+                <InstructorSection />
             </div>
             {/* Footer Section */}
             <div>
-                <Footer/>
+                <Footer />
             </div>
         </div>
     )

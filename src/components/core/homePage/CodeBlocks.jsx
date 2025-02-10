@@ -22,7 +22,7 @@ function CodeBlocks({ position, heading, subheading, custombutton1, custombutton
                 </div>
             </div>
             <div className='flex flex-1 h-fit p-4 bg-richblack-800 bg-opacity-25 relative ' >
-                <div class="absolute -top-[7rem] -left-[7rem] opacity-40 w-[500px] h-[500px] rounded-full bg-[radial-gradient(circle,_rgba(0,255,255,0.3),_rgba(0,255,255,0)_60%)]"></div>
+                <div className="absolute -top-[7rem] -left-[7rem] opacity-40 w-[500px] h-[500px] rounded-full bg-[radial-gradient(circle,_rgba(0,255,255,0.3),_rgba(0,255,255,0)_60%)]"></div>
                 <div className=' flex flex-col   items-center text-richblack-200 font-bold px-3 '>
                     <p>1</p>
                     <p>2</p>
