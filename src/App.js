@@ -12,6 +12,7 @@ import VerifyEmail from "./pages/VerifyEmail";
 import Dashboard from "./pages/Dashboard";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import Error from './pages/Error';
 
 function App() {
   return (
@@ -81,7 +82,7 @@ function App() {
             </OpenRoute>
           }
         />  
-
+        <Route path="*" element={<Error />} />
       </Routes>
 
     </div>
