@@ -4,7 +4,7 @@ const initialState={
     user:null
 }
 const profileSlice=createSlice({
-    name:"auth",
+    name:"profile",
     initialState:initialState,
     reducers:{
         setUser(state,value){

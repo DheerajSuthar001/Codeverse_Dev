@@ -7,6 +7,11 @@ import OpenRoute from "./components/core/auth/OpenRoute"
 import Login from "./pages/Login"
 import Signup from "./pages/Signup"
 import ForgotPassword from "./pages/ForgotPassword";
+import UpdatePassword from "./pages/UpdatePassword";
+import VerifyEmail from "./pages/VerifyEmail";
+import Dashboard from "./pages/Dashboard";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
 
 function App() {
   return (
@@ -38,6 +43,45 @@ function App() {
             </OpenRoute>
           }
         />
+        <Route
+          path="update-password/:id" 
+          element={
+            <OpenRoute>
+              <UpdatePassword/>
+            </OpenRoute>
+          }
+        />
+        <Route
+          path="verify-email"
+          element={
+            <OpenRoute>
+              <VerifyEmail />
+            </OpenRoute>
+          }
+        />  
+        <Route
+          path="/dashboard/my-profile"
+          element={
+            <Dashboard/>
+          }
+        />  
+         <Route
+          path="about"
+          element={
+            <OpenRoute>
+              <About />
+            </OpenRoute>
+          }
+        />  
+        <Route
+          path="contact"
+          element={
+            <OpenRoute>
+              <Contact />
+            </OpenRoute>
+          }
+        />  
+
       </Routes>
 
     </div>
