@@ -13,6 +13,7 @@ const IconBtn = ({
     <button 
     disabled={disabled}
     onClick={onclick}
+    className={customClasses}
     type={type}>
         {
             children ? (

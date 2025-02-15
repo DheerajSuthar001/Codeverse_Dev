@@ -104,9 +104,10 @@ export function login(email, password, navigate) {
       dispatch(setToken(response.data.token))
       const userImage = response.data?.user?.image
         ? response.data.userData.image
-        : `https://api.dicebear.com/5.x/initials/svg?seed=${response.data.userData.firstName} ${response.data.userData.lastName}`
+        : `https://api.dicebear.com/5.x/initials/svg?seed=${response.data.userData.firstName} ${response.data.userData.lastName}`;
       dispatch(setUser({ ...response.data.userData, image: userImage }))
-      localStorage.setItem("token", JSON.stringify(response.data.token))
+      localStorage.setItem("token", JSON.stringify(response.data.token));
+      localStorage.setItem("user", JSON.stringify(response.data.userData));
       navigate("/dashboard/my-profile")
     } catch (error) {
       console.log("LOGIN API ERROR............", error)
