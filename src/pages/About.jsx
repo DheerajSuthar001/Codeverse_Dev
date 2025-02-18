@@ -23,7 +23,7 @@ const About = () => {
                                 <p>Driving Innovation in Online Education for a </p>
                                 <HighlightText text={"Brighter Future"} />
                             </header>
-                            <p className=' text-richblack-200 text-center'>Studynotion is at the forefront of driving innovation in online education. We're passionate about creating a brighter future by offering cutting-edge courses, leveraging emerging technologies, and nurturing a vibrant learning community.</p>
+                            <p className=' text-richblack-200 text-center'>Codeverse is at the forefront of driving innovation in online education. We're passionate about creating a brighter future by offering cutting-edge courses, leveraging emerging technologies, and nurturing a vibrant learning community.</p>
 
                             <div className='flex gap-x-3 mx-auto py-10 '>
                                 <img src={BannerImage1} />

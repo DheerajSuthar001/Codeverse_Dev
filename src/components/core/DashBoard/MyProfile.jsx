@@ -4,11 +4,12 @@ import { useNavigate } from "react-router-dom"
 
 import { formattedDate } from "../../../utils/dateFormatter"
 import IconBtn from "../../core/common/IconBtn"
-
+import { useDispatch } from "react-redux";
+import { setUser } from "../../../slices/profileSlice"
 export default function MyProfile() {
   const { user } = useSelector((state) => state.profile)
-  const navigate = useNavigate()
-
+  const dispatch=useDispatch();
+  const navigate = useNavigate();
   return (
     <>
       <h1 className="mb-14 text-3xl font-medium text-richblack-5">

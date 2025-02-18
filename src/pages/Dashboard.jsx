@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux"
 import { Outlet } from "react-router-dom"
-
+import ScaleLoader from "react-spinners/ScaleLoader";
 import Sidebar from "../components/core/DashBoard/Sidebar"
 
 function Dashboard() {
@@ -10,7 +10,7 @@ function Dashboard() {
   if (profileLoading || authLoading) {
     return (
       <div className="grid min-h-[calc(100vh-3.5rem)] place-items-center">
-        <div className="spinner"></div>
+        <div ><ScaleLoader /></div>
       </div>
     )
   }

@@ -58,7 +58,7 @@ function Navbar() {
                                 <div key={index} className='relative flex gap-2 items-center group cursor-pointer z-0 '>
                                     <p>Catalog</p>
                                     <IoIosArrowDropdownCircle />
-                                    <div className='invisible translate-x-[-50%] translate-y-[20%] absolute left-[50%] top-[10%] flex flex-col rounded-md bg-richblack-5 text-richblack-900 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 lg:w-[200px] ' >
+                                    <div className='invisible translate-x-[-50%] translate-y-[20%] absolute left-[50%] top-[10%] flex flex-col rounded-md bg-richblack-5 text-richblack-900 opacity-0 hover:visible transition-all duration-200 group-hover:visible group-hover:opacity-100 lg:w-[200px] ' >
                                         <div className='absolute translate-x-[50%]  left-[52%] top-0 translate-y-[-10%] h-3 w-3 rotate-45 rounded bg-richblack-5 -z-[1] '></div>
                                         {
                                             subLinks.length ? (

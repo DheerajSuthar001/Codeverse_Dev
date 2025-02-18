@@ -140,7 +140,7 @@ const Home = () => {
                         <h1 className='font-bold text-3xl'>Get the skills you need for a <HighlightText text='job that is in demand.' /></h1>
                     </div>
                     <div className='flex flex-col gap-8'>
-                        <p className=' text-richblack-400 font-bold'>The modern StudyNotion is the dictates its own terms. Today, to be a competitive specialist requires more than professional skills</p>
+                        <p className=' text-richblack-400 font-bold'>The modern Codeverse is the dictates its own terms. Today, to be a competitive specialist requires more than professional skills</p>
                         <CustomButton active={true} linkTo={'/signup'}>Learn More</CustomButton>
                     </div>
 
