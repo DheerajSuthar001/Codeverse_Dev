@@ -45,7 +45,7 @@ const CourseBuilderForm = () => {
         courseId: course._id,
       },token)
     }
-
+    console.log('update course',result)
     //update values
     if(result) {
       dispatch(setCourse(result));
@@ -72,7 +72,7 @@ const CourseBuilderForm = () => {
       toast.error("Please add atleast one Section");
       return;
     }
-    if(course.courseContent.some((section) => section.subSection.length === 0)) {
+    if(course.courseContent.some((section) => section.subSections.length === 0)) {
       toast.error("Please add atleast one lecture in each section");
       return;
     }
@@ -100,7 +100,10 @@ const CourseBuilderForm = () => {
             id='sectionName'
             placeholder='Add section name'
             {...register("sectionName", {required:true})}
-            className='w-full'
+            style={{
+            boxShadow: "inset 0px -1px 0px rgba(255, 255, 255, 0.18)",
+          }}
+          className="w-full rounded-[0.5rem] bg-richblack-800 p-[12px] text-richblack-5"
           />
           {errors.sectionName && (
             <span>Section Name is required</span>
@@ -111,7 +114,7 @@ const CourseBuilderForm = () => {
             type="Submit"
             text={editSectionName ? "Edit Section Name" : "Create Section"}
             outline={true}
-            customClasses={"text-white"}
+            customClasses={"text-yellow-50 flex gap-2 items-center border-2 border-yellow-50 px-3 py-1 rounded-md"}
           >
             <MdAddCircleOutline className='text-yellow-50' size={20}/>
 
@@ -127,7 +130,8 @@ const CourseBuilderForm = () => {
           )}
         </div>
       </form>
-
+          {console.log(course?.courseContent?.length)}
+          {console.log(course)}
       {course?.courseContent?.length > 0 && (
         <NestedView handleChangeEditSectionName={handleChangeEditSectionName} />
       )}
@@ -138,7 +142,8 @@ const CourseBuilderForm = () => {
         className='rounded-md cursor-pointer flex items-center '>
           Back
         </button>
-        <IconBtn text="Next" onclick={goToNext}>
+        <IconBtn text="Next" onclick={goToNext} customClasses={`text-center flex gap-2 items-center text-[13px] px-6 py-3 bg-yellow-50 text-black rounded-lg shadow-[1px_1px_0px_0px_rgba(249,_115,_22,_0.5)]
+            shadow-richblack-600 hover:scale-95 transition-all duration-200 font-[700]`}>
           <BiRightArrow />
         </IconBtn>
 

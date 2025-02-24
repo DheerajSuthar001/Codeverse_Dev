@@ -4,6 +4,7 @@ import { updateCompletedLectures } from "../../slices/viewCourseSlice"
 // import { setLoading } from "../../slices/profileSlice";
 import { apiConnector } from "../apiConnector"
 import { courseEndpoints } from "../apis"
+import { GiConsoleController } from "react-icons/gi"
 
 const {
   COURSE_DETAILS_API,
@@ -142,7 +143,7 @@ export const createSection = async (data, token) => {
       throw new Error("Could Not Create Section")
     }
     toast.success("Course Section Created")
-    result = response?.data?.updatedCourse
+    result = response?.data?.updatedCourseDetails
   } catch (error) {
     console.log("CREATE SECTION API ERROR............", error)
     toast.error(error.message)
@@ -240,6 +241,7 @@ export const deleteSection = async (data, token) => {
 }
 // delete a subsection
 export const deleteSubSection = async (data, token) => {
+  console.log('token is',token);
   let result = null
   const toastId = toast.loading("Loading...")
   try {

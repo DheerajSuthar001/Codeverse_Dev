@@ -70,7 +70,7 @@ export default function CourseInformationForm() {
       currentValues.courseBenefits !== course.whatYouWillLearn ||
       currentValues.courseCategory._id !== course.category._id ||
       currentValues.courseRequirements.toString() !==
-        course.instructions.toString() ||
+      course.instructions.toString() ||
       currentValues.courseImage !== course.thumbnail
     ) {
       return true
@@ -122,7 +122,7 @@ export default function CourseInformationForm() {
         if (currentValues.courseImage !== course.thumbnail) {
           formData.append("thumbnailImage", data.courseImage)
         }
-       console.log("Edit Form data: ", formData)
+        console.log("Edit Form data: ", formData)
         setLoading(true)
         const result = await editCourseDetails(formData, token)
         setLoading(false)
@@ -148,7 +148,7 @@ export default function CourseInformationForm() {
     formData.append("thumbnailImage", data.courseImage)
     for (let pair of formData.entries()) {
       console.log(pair[0] + ':', pair[1]);
-  }
+    }
     setLoading(true)
     const result = await addCourseDetails(formData, token)
     if (result) {
@@ -172,7 +172,10 @@ export default function CourseInformationForm() {
           id="courseTitle"
           placeholder="Enter Course Title"
           {...register("courseTitle", { required: true })}
-          className="form-style w-full"
+          style={{
+            boxShadow: "inset 0px -1px 0px rgba(255, 255, 255, 0.18)",
+          }}
+          className="w-full rounded-[0.5rem] bg-richblack-700 p-[12px] text-richblack-5"
         />
         {errors.courseTitle && (
           <span className="ml-2 text-xs tracking-wide text-pink-200">
@@ -213,7 +216,10 @@ export default function CourseInformationForm() {
                 value: /^(0|[1-9]\d*)(\.\d+)?$/,
               },
             })}
-            className="form-style w-full !pl-12"
+            style={{
+              boxShadow: "inset 0px -1px 0px rgba(255, 255, 255, 0.18)",
+            }}
+            className="w-full rounded-[0.5rem] bg-richblack-700 p-[12px] text-richblack-5 pl-12"
           />
           <HiOutlineCurrencyRupee className="absolute left-3 top-1/2 inline-block -translate-y-1/2 text-2xl text-richblack-400" />
         </div>
@@ -232,7 +238,10 @@ export default function CourseInformationForm() {
           {...register("courseCategory", { required: true })}
           defaultValue=""
           id="courseCategory"
-          className="form-style w-full"
+          style={{
+            boxShadow: "inset 0px -1px 0px rgba(255, 255, 255, 0.18)",
+          }}
+          className="w-full resize-x-none rounded-[0.5rem] bg-richblack-700 p-[12px] text-richblack-5"
         >
           <option value="" disabled>
             Choose a Category
@@ -278,7 +287,11 @@ export default function CourseInformationForm() {
           id="courseBenefits"
           placeholder="Enter benefits of the course"
           {...register("courseBenefits", { required: true })}
-          className="form-style resize-x-none min-h-[130px] w-full"
+          style={{
+            boxShadow: "inset 0px -1px 0px rgba(255, 255, 255, 0.18)",
+          }}
+          className="w-full resize-x-none min-h-[130px] rounded-[0.5rem] bg-richblack-700 p-[12px] text-richblack-5"
+
         />
         {errors.courseBenefits && (
           <span className="ml-2 text-xs tracking-wide text-pink-200">

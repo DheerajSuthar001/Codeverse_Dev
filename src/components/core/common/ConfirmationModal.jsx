@@ -14,6 +14,8 @@ export default function ConfirmationModal({ modalData }) {
           <IconBtn
             onclick={modalData?.btn1Handler}
             text={modalData?.btn1Text}
+            customClasses={`text-center flex gap-2 items-center text-[13px] px-6 py-3 bg-yellow-50 text-black rounded-lg shadow-[1px_1px_0px_0px_rgba(249,_115,_22,_0.5)]
+              shadow-richblack-600 hover:scale-95 transition-all duration-200 font-[700]`}
           />
           <button
             className="cursor-pointer rounded-md bg-richblack-200 py-[8px] px-[20px] font-semibold text-richblack-900"

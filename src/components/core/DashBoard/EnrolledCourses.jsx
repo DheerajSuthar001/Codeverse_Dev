@@ -12,12 +12,12 @@ export default function EnrolledCourses() {
   const navigate = useNavigate();
   const [loading,setLoading]=useState(false);
 
-  const [enrolledCourses, setEnrolledCourses] = useState(null)
+  const [enrolledCourses, setEnrolledCourses] = useState([])
   const getEnrolledCourses = async () => {
     try {
         setLoading(true);
       const res = await getUserEnrolledCourses(token);
-
+        console.log('total enrolled  courses',res);
       setEnrolledCourses(res);
       setLoading(false);
     } catch (error) {
@@ -32,7 +32,7 @@ export default function EnrolledCourses() {
   return (
     <>
       <div className="text-3xl text-richblack-50">Enrolled Courses</div>
-      
+      {console.log('set enrolled  courses',enrolledCourses.length)}
       {
         loading?(
             <div className="grid min-h-[calc(100vh-3.5rem)] place-items-center">

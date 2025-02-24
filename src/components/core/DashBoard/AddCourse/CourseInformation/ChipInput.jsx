@@ -23,7 +23,7 @@ export default function ChipInput({
   useEffect(() => {
     if (editCourse) {
       // console.log(course)
-      setChips(course?.tag)
+      setChips(course?.tags)
     }
     register(name, { required: true, validate: (value) => value.length > 0 })
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -93,7 +93,10 @@ export default function ChipInput({
           type="text"
           placeholder={placeholder}
           onKeyDown={handleKeyDown}
-          className="form-style w-full"
+          style={{
+            boxShadow: "inset 0px -1px 0px rgba(255, 255, 255, 0.18)",
+          }}
+          className="w-full rounded-[0.5rem] bg-richblack-700 p-[12px] text-richblack-5"
         />
       </div>
       {/* Render an error message if the input is required and not filled */}

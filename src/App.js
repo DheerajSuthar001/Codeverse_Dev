@@ -20,6 +20,10 @@ import EnrolledCourses from "./components/core/DashBoard/EnrolledCourses";
 import Settings from './components/core/DashBoard/Settings'
 import { ACCOUNT_TYPE } from "./utils/constants";
 import AddCourse from "./components/core/DashBoard/AddCourse";
+import MyCourses from "./components/core/DashBoard/MyCourses";
+import EditCourse from "./components/core/DashBoard/EditCourse";
+import Catalog from "./pages/Catalog";
+import CourseDetails from "./pages/CourseDetails";
 function App() {
   const { user } = useSelector(state => state.profile);
   return (
@@ -27,6 +31,8 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="catalog/:catalogName" element={<Catalog/>} />
+        <Route path="courses/:courseId" element={<CourseDetails/>} />
         <Route
           path="signup"
           element={
@@ -79,9 +85,7 @@ function App() {
         <Route
           path="contact"
           element={
-            <OpenRoute>
-              <Contact />
-            </OpenRoute>
+            <Contact />
           }
         />
         <Route
@@ -106,7 +110,8 @@ function App() {
             user?.accountType === ACCOUNT_TYPE.INSTRUCTOR && (
               <>
                 <Route path="dashboard/add-course" element={<AddCourse/>} />
-
+                <Route path="dashboard/my-courses" element={<MyCourses />} />
+                <Route path="dashboard/edit-course/:courseId" element={<EditCourse />} />
               </>
             )
           }
