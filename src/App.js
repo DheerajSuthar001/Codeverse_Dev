@@ -24,6 +24,8 @@ import MyCourses from "./components/core/DashBoard/MyCourses";
 import EditCourse from "./components/core/DashBoard/EditCourse";
 import Catalog from "./pages/Catalog";
 import CourseDetails from "./pages/CourseDetails";
+import Cart from './components/core/Cart'
+import Instructor from "./components/core/DashBoard/Instructor";
 function App() {
   const { user } = useSelector(state => state.profile);
   return (
@@ -31,8 +33,10 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="catalog/:catalogName" element={<Catalog/>} />
-        <Route path="courses/:courseId" element={<CourseDetails/>} />
+        <Route path="catalog/:catalogName" element={<Catalog />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="courses/:courseId" element={<CourseDetails />} />
         <Route
           path="signup"
           element={
@@ -75,20 +79,6 @@ function App() {
         />
 
         <Route
-          path="about"
-          element={
-            <OpenRoute>
-              <About />
-            </OpenRoute>
-          }
-        />
-        <Route
-          path="contact"
-          element={
-            <Contact />
-          }
-        />
-        <Route
           element={
             <PrivateRoute>
               <Dashboard />
@@ -100,7 +90,7 @@ function App() {
           {
             user?.accountType === ACCOUNT_TYPE.STUDENT && (
               <>
-                {/* <Route path="dashboard/cart" element={<Cart />} /> */}
+                <Route path="dashboard/cart" element={<Cart />} />
                 <Route path="dashboard/enrolled-courses" element={<EnrolledCourses />} />
               </>
             )
@@ -109,7 +99,8 @@ function App() {
           {
             user?.accountType === ACCOUNT_TYPE.INSTRUCTOR && (
               <>
-                <Route path="dashboard/add-course" element={<AddCourse/>} />
+                <Route path="dashboard/instructor" element={<Instructor />} />
+                <Route path="dashboard/add-course" element={<AddCourse />} />
                 <Route path="dashboard/my-courses" element={<MyCourses />} />
                 <Route path="dashboard/edit-course/:courseId" element={<EditCourse />} />
               </>
