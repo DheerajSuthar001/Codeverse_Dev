@@ -8,7 +8,7 @@ import { BigPlayButton, Player } from "video-react"
 
 import { markLectureAsComplete } from "../../../services/operations/courseDetailsAPI"
 import { updateCompletedLectures } from "../../../slices/viewCourseSlice"
-import IconBtn from "../../Common/IconBtn"
+import IconBtn from "../common/IconBtn"
 
 const VideoDetails = () => {
   const { courseId, sectionId, subSectionId } = useParams()
@@ -36,7 +36,7 @@ const VideoDetails = () => {
           (course) => course._id === sectionId
         )
         // console.log("filteredData", filteredData)
-        const filteredVideoData = filteredData?.[0]?.subSection.filter(
+        const filteredVideoData = filteredData?.[0]?.subSections.filter(
           (data) => data._id === subSectionId
         )
         // console.log("filteredVideoData", filteredVideoData)
@@ -55,7 +55,7 @@ const VideoDetails = () => {
 
     const currentSubSectionIndx = courseSectionData[
       currentSectionIndx
-    ].subSection.findIndex((data) => data._id === subSectionId)
+    ].subSections.findIndex((data) => data._id === subSectionId)
 
     if (currentSectionIndx === 0 && currentSubSectionIndx === 0) {
       return true
@@ -73,17 +73,17 @@ const VideoDetails = () => {
     )
 
     const noOfSubsections =
-      courseSectionData[currentSectionIndx].subSection.length
+      courseSectionData[currentSectionIndx].subSections.length
 
     const currentSubSectionIndx = courseSectionData[
       currentSectionIndx
-    ].subSection.findIndex((data) => data._id === subSectionId)
+    ].subSections.findIndex((data) => data._id === subSectionId)
 
     // console.log("no of subsections", noOfSubsections)
 
     if (currentSubSectionIndx !== noOfSubsections - 1) {
       const nextSubSectionId =
-        courseSectionData[currentSectionIndx].subSection[
+        courseSectionData[currentSectionIndx].subSections[
           currentSubSectionIndx + 1
         ]._id
       navigate(
@@ -92,7 +92,7 @@ const VideoDetails = () => {
     } else {
       const nextSectionId = courseSectionData[currentSectionIndx + 1]._id
       const nextSubSectionId =
-        courseSectionData[currentSectionIndx + 1].subSection[0]._id
+        courseSectionData[currentSectionIndx + 1].subSections[0]._id
       navigate(
         `/view-course/${courseId}/section/${nextSectionId}/sub-section/${nextSubSectionId}`
       )
@@ -106,11 +106,11 @@ const VideoDetails = () => {
     )
 
     const noOfSubsections =
-      courseSectionData[currentSectionIndx].subSection.length
+      courseSectionData[currentSectionIndx].subSections.length
 
     const currentSubSectionIndx = courseSectionData[
       currentSectionIndx
-    ].subSection.findIndex((data) => data._id === subSectionId)
+    ].subSections.findIndex((data) => data._id === subSectionId)
 
     if (
       currentSectionIndx === courseSectionData.length - 1 &&
@@ -132,11 +132,11 @@ const VideoDetails = () => {
 
     const currentSubSectionIndx = courseSectionData[
       currentSectionIndx
-    ].subSection.findIndex((data) => data._id === subSectionId)
+    ].subSections.findIndex((data) => data._id === subSectionId)
 
     if (currentSubSectionIndx !== 0) {
       const prevSubSectionId =
-        courseSectionData[currentSectionIndx].subSection[
+        courseSectionData[currentSectionIndx].subSections[
           currentSubSectionIndx - 1
         ]._id
       navigate(
@@ -145,9 +145,9 @@ const VideoDetails = () => {
     } else {
       const prevSectionId = courseSectionData[currentSectionIndx - 1]._id
       const prevSubSectionLength =
-        courseSectionData[currentSectionIndx - 1].subSection.length
+        courseSectionData[currentSectionIndx - 1].subSections.length
       const prevSubSectionId =
-        courseSectionData[currentSectionIndx - 1].subSection[
+        courseSectionData[currentSectionIndx - 1].subSections[
           prevSubSectionLength - 1
         ]._id
       navigate(
@@ -159,7 +159,7 @@ const VideoDetails = () => {
   const handleLectureCompletion = async () => {
     setLoading(true)
     const res = await markLectureAsComplete(
-      { courseId: courseId, subsectionId: subSectionId },
+      { courseId: courseId, subSectionId: subSectionId },
       token
     )
     if (res) {

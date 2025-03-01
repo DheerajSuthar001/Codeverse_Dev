@@ -10,15 +10,16 @@ import TimelineSection from '../components/core/homePage/TimelineSection';
 import LearningSection from '../components/core/homePage/LearningSection';
 import InstructorSection from '../components/core/homePage/InstructorSection';
 import ExploreMore from '../components/core/homePage/ExploreMore';
+import ReviewSlider from '../components/core/common/ReviewSlider';
 const Home = () => {
     return (
         <div>
             {/* section - 1  */}
-            <div className='bg-transparent mx-auto flex flex-col gap-11 items-center justify-between text-white w-8/12 my-10'>
+            <div className='bg-transparent mx-auto flex flex-col gap-11 items-center max-sm:items-start max-sm:px-4 justify-between text-white w-10/12 max-sm:w-full max-md:w-full max-lg:w-full my-10'>
                 <Link to={"/signup"}>
-                    <div className='bg-richblack-800 shadow-sm shadow-richblack-200  group rounded-full transition-all duration-200 hover:scale-95 '>
+                    <div className='bg-richblack-800 shadow-sm shadow-richblack-200  group rounded-full transition-all duration-200 hover:scale-95  '>
                         <button className='px-8 py-2 rounded-full flex gap-3 justify-center items-center  font-bold text-richblack-200 transition-all duration-200
-                     group-hover:bg-richblack-900'>
+                     group-hover:bg-richblack-900 max-sm:text-base '>
                             <p>Become an instructor</p>
                             <FaArrowRight />
                         </button>
@@ -27,14 +28,14 @@ const Home = () => {
 
                 </Link>
 
-                <div className='flex flex-col items-center  gap-5 w-[70%]  ' >
-                    <h1 className='text-white font-bold text-4xl'>Empower Yout Future with <HighlightText text='Coding Skills' /> </h1>
-                    <p className='text-center text-richblack-200 text-lg'>
+                <div className='flex flex-col items-center  gap-5 w-[70%] max-sm:w-full max-sm:items-start  ' >
+                    <h1 className='text-white text-center font-bold text-4xl max-sm:text-3xl'>Empower Your Future with <HighlightText text='Coding Skills' /> </h1>
+                    <p className='text-center text-richblack-200 text-lg max-sm:text-justify'>
                         With our online coding courses, you can learn at your own pace, from anywhere in the world, and get access to a wealth of resources, including hands-on projects, quizzes, and personalized feedback from instructors.
                     </p>
                 </div>
 
-                <div className='flex gap-8'>
+                <div className='flex gap-8 max-sm:justify-center max-sm:w-full max-sm:text-xl'>
                     <CustomButton active={true} linkTo={'/signup'} >
                         Learn More
                     </CustomButton>
@@ -44,12 +45,12 @@ const Home = () => {
 
                 </div>
                 <div className='mt-5 relative flex  justify-center w-11/12 '>
-                    <div className='w-[400px] h-[100px] rounded-full bg-blue-50  shadow-[0_0_150px_80px] shadow-blue-50 absolute top-[120px] z-[9]  '></div>
-                    <video muted loop autoPlay className='shadow-[22px_22px_0px_0px_rgba(0,_0,_0,_0.1)] shadow-white z-10  border-none '>
+                    <div className='max-w-[400px] max-h-[120px] rounded-full bg-blue-50  shadow-[0_0_150px_80px] shadow-blue-50 absolute top-[120px] z-[9]  '></div>
+                    <video muted loop autoPlay className='shadow-[22px_22px_0px_0px_rgba(0,_0,_0,_0.1)] max-sm:shadow-[12px_12px_0px_0px_rgba(0,_0,_0,_0.1)] max-sm:shadow-white  max-md:shadow-[12px_12px_0px_0px_rgba(0,_0,_0,_0.1)] max-md:shadow-white  shadow-white z-10  border-none '>
                         <source src={banner} ></source>
                     </video>
                 </div>
-                <div>
+                <div className='max-sm:w-full max-md:w-full'>
                     <CodeBlocks
                         position={'flex-row'}
                         heading={<div>
@@ -119,9 +120,9 @@ const Home = () => {
 
             </div>
             {/* Section 2 */}
-            <div className=' bg-pure-greys-5 text-richblack-700 '>
+            <div className=' bg-pure-greys-5 text-richblack-700 max-sm:px-4 '>
                 <div className='relative flex items-center justify-center'>
-                    <div className='homePage_bg h-[333px]'></div>
+                    <div className='homePage_bg h-[333px] max-sm:h-[200px] max-md:h-[200px]'></div>
                     <div>
 
                     </div>
@@ -135,7 +136,8 @@ const Home = () => {
                         </CustomButton>
                     </div>
                 </div>
-                <div className='w-8/12  flex mx-auto justify-center gap-12 py-12 '>
+                <div className='w-8/12 max-sm:w-full  flex max-sm:flex-col mx-auto justify-center gap-12 py-12 
+                max-sm:gap-5 '>
                     <div>
                         <h1 className='font-bold text-3xl'>Get the skills you need for a <HighlightText text='job that is in demand.' /></h1>
                     </div>
@@ -150,8 +152,11 @@ const Home = () => {
 
             </div>
             {/* Section 3 */}
-            <div className='w-8/12 mx-auto max-w-maxContent flex-col items-center justify-between gap-8 first-letter bg-richblack-900 text-white'>
+            <div className='w-8/12 max-sm:w-full max-sm:px-4 mx-auto  max-w-maxContent flex-col items-center justify-between gap-8 first-letter bg-richblack-900 text-white'>
                 <InstructorSection />
+                <h2 className='text-center text-4xl max-sm:text-3xl font-bold mt-10 max-sm:text-start '>Review from Other Learners</h2>
+                {/* Review Slider here */}
+                <ReviewSlider />
             </div>
             {/* Footer Section */}
             <div>

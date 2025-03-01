@@ -12,50 +12,51 @@ import { BsChevronDown } from 'react-icons/bs';
 import ProfileDropdown from '../auth/ProfileDropDown';
 import { ACCOUNT_TYPE } from '../../../utils/constants';
 import { AiOutlineMenu } from 'react-icons/ai';
-function Navbar() {
+import HamMenu from './HamMenu';
+import { VscClose } from 'react-icons/vsc';
+function Navbar({ hamMenu, setHamMenu }) {
 
-    const { token } = useSelector((state) => state.auth);
-    // console.log('token is',token);
-    const { user } = useSelector((state) => state.profile);
-    const { totalItems } = useSelector((state) => state.cart);
-    const [loading, setLoading] = useState(false)
+  const { token } = useSelector((state) => state.auth);
+  // console.log('token is',token);
+  const { user } = useSelector((state) => state.profile);
+  const { totalItems } = useSelector((state) => state.cart);
+  const [loading, setLoading] = useState(false);
 
-    // const subLinks=[
-    //     {
-    //         title:'Python',
-    //         link:'/catalog/python'
-    //     },
-    //     {
-    //         title:'Web Dev',
-    //         link:'/catalog/web-dev'
-    //     }
-    // ]
-    const [subLinks, setSubLinks] = useState([]);
-    const fetchSubLinks = async () => {
-        try {
-            setLoading(true);
-            let response = await apiConnector('GET', categories.CATEGORIES_API);
-            // console.log(response.data.data);
-            setSubLinks(response.data.data);
-            setLoading(false);
-        } catch (error) {
-            console.log('Cannot fetch categories list', error)
-            setLoading(false);
-        }
+  // const subLinks=[
+  //     {
+  //         title:'Python',
+  //         link:'/catalog/python'
+  //     },
+  //     {
+  //         title:'Web Dev',
+  //         link:'/catalog/web-dev'
+  //     }
+  // ]
+  const [subLinks, setSubLinks] = useState([]);
+  const fetchSubLinks = async () => {
+    try {
+      setLoading(true);
+      let response = await apiConnector('GET', categories.CATEGORIES_API);
+      // console.log(response.data.data);
+      setSubLinks(response.data.data);
+      setLoading(false);
+    } catch (error) {
+      console.log('Cannot fetch categories list', error)
+      setLoading(false);
     }
-    useEffect(() => {
-        fetchSubLinks();
-    }, [])
-    const location = useLocation();
-    const matchRoute = (route) => {
-        return matchPath({ path: route }, location.pathname)
-    }
-    console.log('sublinks are ',subLinks)
-    return (
-        <div
-      className={`flex h-14 items-center justify-center border-b-[1px] border-b-richblack-700 ${
-        location.pathname !== "/" ? "bg-richblack-800" : ""
-      } transition-all duration-200`}
+  }
+  useEffect(() => {
+    fetchSubLinks();
+  }, [])
+  const location = useLocation();
+  const matchRoute = (route) => {
+    return matchPath({ path: route }, location.pathname)
+  }
+  console.log('sublinks are ', subLinks)
+  return (
+    <div
+      className={`${hamMenu?'fixed bg-richblack-800':'static'} flex w-full h-14 items-center justify-center border-b-[1px] border-b-richblack-700 ${location.pathname !== "/" ? "bg-richblack-800" : ""
+        } transition-all duration-200 `}
     >
       <div className="flex w-11/12 max-w-maxContent items-center justify-between">
         {/* Logo */}
@@ -70,17 +71,16 @@ function Navbar() {
                 {link.title === "Catalog" ? (
                   <>
                     <div
-                      className={`group relative flex cursor-pointer items-center gap-1 ${
-                        matchRoute("/catalog/:catalogName")
+                      className={`group relative flex cursor-pointer items-center gap-1 ${matchRoute("/catalog/:catalogName")
                           ? "text-yellow-25"
                           : "text-richblack-25"
-                      }`}
+                        }`}
                     >
                       <p>{link.title}</p>
                       <BsChevronDown />
                       <div className="invisible absolute left-[50%] top-[50%] z-[1000] flex w-[200px] translate-x-[-50%] translate-y-[3em] flex-col rounded-lg bg-richblack-5 p-4 text-richblack-900 opacity-0 transition-all duration-150 group-hover:visible group-hover:translate-y-[1.65em] group-hover:opacity-100 lg:w-[300px]">
                         <div className="absolute left-[50%] top-0 -z-10 h-6 w-6 translate-x-[80%] translate-y-[-40%] rotate-45 select-none rounded bg-richblack-5"></div>
-                        {console.log('loading',loading)}
+                        {console.log('loading', loading)}
                         {console.log('sublinks length', subLinks.length)}
                         {loading ? (
                           <p className="text-center">Loading...</p>
@@ -112,11 +112,10 @@ function Navbar() {
                 ) : (
                   <Link to={link?.path}>
                     <p
-                      className={`${
-                        matchRoute(link?.path)
+                      className={`${matchRoute(link?.path)
                           ? "text-yellow-25"
                           : "text-richblack-25"
-                      }`}
+                        }`}
                     >
                       {link.title}
                     </p>
@@ -154,12 +153,19 @@ function Navbar() {
           )}
           {token !== null && <ProfileDropdown />}
         </div>
-        <button className="mr-4 md:hidden">
-          <AiOutlineMenu fontSize={24} fill="#AFB2BF" />
-        </button>
+        {
+          hamMenu ? <button className="mr-4 md:hidden">
+            <VscClose onClick={() => setHamMenu(false)} fontSize={24} fill="#AFB2BF" />
+          </button> :
+            <button className="mr-4 md:hidden">
+              <AiOutlineMenu onClick={() => setHamMenu(true)} fontSize={24} fill="#AFB2BF" />
+            </button>
+        }
+
       </div>
+
     </div>
-    )
+  )
 }
 
 

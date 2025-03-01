@@ -26,11 +26,19 @@ import Catalog from "./pages/Catalog";
 import CourseDetails from "./pages/CourseDetails";
 import Cart from './components/core/Cart'
 import Instructor from "./components/core/DashBoard/Instructor";
+import ViewCourse from "./pages/ViewCourse";
+import VideoDetails from "./components/core/ViewCourse/VideoDetails";
+import { useState } from "react";
+import HamMenu from "./components/core/common/HamMenu";
 function App() {
   const { user } = useSelector(state => state.profile);
+  const [hamMenu,setHamMenu]=useState(false)
   return (
     <div className="w-screen min-h-screen bg-richblack-900 flex flex-col font-inter  ">
-      <Navbar />
+      <Navbar hamMenu={hamMenu} setHamMenu={setHamMenu} />
+      {
+        hamMenu && <HamMenu setHamMenu={setHamMenu}/>
+      }
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="catalog/:catalogName" element={<Catalog />} />
@@ -109,7 +117,22 @@ function App() {
 
 
         </Route>
-
+        <Route
+          element={
+            <PrivateRoute>
+              <ViewCourse />
+            </PrivateRoute>
+          }
+        >
+          {user?.accountType === ACCOUNT_TYPE.STUDENT && (
+            <>
+              <Route
+                path="view-course/:courseId/section/:sectionId/sub-section/:subSectionId"
+                element={<VideoDetails />}
+              />
+            </>
+          )}
+        </Route>
         <Route path="*" element={<Error />} />
       </Routes>
 

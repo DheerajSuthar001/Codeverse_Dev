@@ -4,7 +4,7 @@ import { IoIosArrowBack } from "react-icons/io"
 import { useSelector } from "react-redux"
 import { useLocation, useNavigate, useParams } from "react-router-dom"
 
-import IconBtn from "../../Common/IconBtn"
+import IconBtn from "../common/IconBtn"
 
 export default function VideoDetailsSidebar({ setReviewModal }) {
   const [activeStatus, setActiveStatus] = useState("")
@@ -21,15 +21,16 @@ export default function VideoDetailsSidebar({ setReviewModal }) {
 
   useEffect(() => {
     ;(() => {
-      if (!courseSectionData.length) return
+      if (!courseSectionData.length) return;
+
       const currentSectionIndx = courseSectionData.findIndex(
         (data) => data._id === sectionId
       )
       const currentSubSectionIndx = courseSectionData?.[
         currentSectionIndx
-      ]?.subSection.findIndex((data) => data._id === subSectionId)
+      ]?.subSections.findIndex((data) => data._id === subSectionId)
       const activeSubSectionId =
-        courseSectionData[currentSectionIndx]?.subSection?.[
+        courseSectionData[currentSectionIndx]?.subSections?.[
           currentSubSectionIndx
         ]?._id
       setActiveStatus(courseSectionData?.[currentSectionIndx]?._id)
@@ -97,7 +98,7 @@ export default function VideoDetailsSidebar({ setReviewModal }) {
               {/* Sub Sections */}
               {activeStatus === course?._id && (
                 <div className="transition-[height] duration-500 ease-in-out">
-                  {course.subSection.map((topic, i) => (
+                  {course.subSections.map((topic, i) => (
                     <div
                       className={`flex gap-3  px-5 py-2 ${
                         videoBarActive === topic._id

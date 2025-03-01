@@ -3,7 +3,7 @@ import { MdPersonSearch } from "react-icons/md";
 import { TbBinaryTree2Filled } from "react-icons/tb";
 function CourseCard({ cardData, currentCard, setCurrentCard }) {
     return (
-        <div className={` h-[300px]  flex flex-col justify-between p-5 ${currentCard===cardData.heading?
+        <div className={` h-[300px] max-sm:h-fit max-md:h-fit max-lg:max-w-[30%] max-lg:aspect-square   flex flex-col justify-between p-5 ${currentCard===cardData.heading?
         'bg-white text-richblack-900 shadow-yellow-50 shadow-[12px_12px_0px_0px_rgba(0,_0,_0,_0.1)]':
          ' bg-richblack-800 text-richblack-200 hover:scale-95'} transition-transform duration-200 cursor-pointer  `}
          onClick={()=>setCurrentCard(cardData.heading)}
