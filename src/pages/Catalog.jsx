@@ -32,7 +32,7 @@ const Catalog = () => {
         const getCategoryDetails = async() => {
             try{
                 const res = await getCatalogaPageData(categoryId);
-                console.log("PRinting res: ", res);
+                
                 setCatalogPageData(res);
             }
             catch(error) {
@@ -128,7 +128,7 @@ const Catalog = () => {
                 {catalogPageData?.data?.mostSellingCourses
                   ?.slice(0, 4)
                   .map((course, i) => (
-                    <Course_Card course={course} key={i} Height={"h-[400px]"} />
+                    <Course_Card course={course} key={i} Height={"lg:h-[250px] max-lg:h-[200px] max-md:[h-[150px]]  max-sm:w-[300px]  "} />
                   ))}
               </div>
             </div>

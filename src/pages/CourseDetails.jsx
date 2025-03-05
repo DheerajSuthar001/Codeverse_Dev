@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { BiInfoCircle } from "react-icons/bi"
+import { BiArrowBack, BiInfoCircle } from "react-icons/bi"
 import { HiOutlineGlobeAlt } from "react-icons/hi"
 import Markdown from "react-markdown"
 import { useDispatch, useSelector } from "react-redux"
@@ -33,7 +33,7 @@ function CourseDetails() {
   const [confirmationModal, setConfirmationModal] = useState(null)
   useEffect(() => {
     // Calling fetchCourseDetails fucntion to fetch the details
-    ;(async () => {
+    ; (async () => {
       try {
         const res = await fetchCourseDetails(courseId)
         // console.log("course details res: ", res)
@@ -130,6 +130,9 @@ function CourseDetails() {
       <div className={`relative w-full bg-richblack-800`}>
         {/* Hero Section */}
         <div className="mx-auto box-content px-4 lg:w-[1260px] 2xl:relative ">
+          <button onClick={() => navigate(-1)} className=" my-7 text-3xl text-white">
+            <BiArrowBack />
+          </button>
           <div className="mx-auto grid min-h-[450px] max-w-maxContentTab justify-items-center py-8 lg:mx-0 lg:justify-items-start lg:py-0 xl:max-w-[810px]">
             <div className="relative block max-h-[30rem] lg:hidden">
               <div className="absolute bottom-0 left-0 h-full w-full shadow-[#161D29_0px_-64px_36px_-28px_inset]"></div>
@@ -139,9 +142,11 @@ function CourseDetails() {
                 className="aspect-auto w-full"
               />
             </div>
+
             <div
               className={`z-30 my-5 flex flex-col justify-center gap-4 py-5 text-lg text-richblack-5`}
             >
+
               <div>
                 <p className="text-4xl font-bold text-richblack-5 sm:text-[42px]">
                   {courseName}

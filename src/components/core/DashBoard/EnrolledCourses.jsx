@@ -17,7 +17,7 @@ export default function EnrolledCourses() {
     try {
         setLoading(true);
       const res = await getUserEnrolledCourses(token);
-        console.log('total enrolled  courses',res);
+        
       setEnrolledCourses(res);
       setLoading(false);
     } catch (error) {
@@ -32,7 +32,7 @@ export default function EnrolledCourses() {
   return (
     <>
       <div className="text-3xl text-richblack-50">Enrolled Courses</div>
-      {console.log('set enrolled  courses',enrolledCourses.length)}
+      
       {
         loading?(
             <div className="grid min-h-[calc(100vh-3.5rem)] place-items-center">
@@ -52,9 +52,9 @@ export default function EnrolledCourses() {
         <div className="my-8 text-richblack-5">
           {/* Headings */}
           <div className="flex rounded-t-lg bg-richblack-500 ">
-            <p className="w-[45%] px-5 py-3">Course Name</p>
-            <p className="w-1/4 px-2 py-3">Duration</p>
-            <p className="flex-1 px-2 py-3">Progress</p>
+            <p className="w-2/5 px-5 py-3 max-sm:text-xs max-sm:font-bold">Course Name</p>
+            <p className="w-1/5 px-2 py-3 max-sm:text-xs max-sm:font-bold">Duration</p>
+            <p className="flex-1 px-2 py-3 max-sm:text-xs max-sm:font-bold">Progress</p>
           </div>
           {/* Course Names */}
           {enrolledCourses.map((course, i, arr) => (
@@ -64,9 +64,9 @@ export default function EnrolledCourses() {
               }`}
               key={i}
             >
-            {console.log(course)}
+           
               <div
-                className="flex w-[45%] cursor-pointer items-center gap-4 px-5 py-3"
+                className="flex w-2/5 cursor-pointer items-center gap-4 px-5 py-3 max-sm:flex-col max-sm:items-start max-sm:text-xs   "
                 onClick={() => {
                   navigate(
                     `/view-course/${course?._id}/section/${course.courseContent?.[0]?._id}/sub-section/${course.courseContent?.[0]?.subSections?.[0]?._id}`
@@ -76,7 +76,7 @@ export default function EnrolledCourses() {
                 <img
                   src={course.thumbnail}
                   alt="course_img"
-                  className="h-14 w-14 rounded-lg object-cover"
+                  className="h-14 w-14 rounded-lg object-cover max-sm:h-10 max-sm:w-10"
                 />
                 <div className="flex max-w-xs flex-col gap-2">
                   <p className="font-semibold">{course.courseName}</p>
@@ -87,8 +87,8 @@ export default function EnrolledCourses() {
                   </p>
                 </div>
               </div>
-              <div className="w-1/4 px-2 py-3">{course?.totalDuration}</div>
-              <div className="flex w-1/5 flex-col gap-2 px-2 py-3">
+              <div className="w-1/5 px-2 py-3  max-sm:text-xs">{course?.totalDuration}</div>
+              <div className="flex w-1/3 flex-col gap-2 px-2 py-3  max-sm:text-xs">
                 <p>Progress: {course.progressPercentage || 0}%</p>
                 <ProgressBar
                   completed={course.progressPercentage || 0}

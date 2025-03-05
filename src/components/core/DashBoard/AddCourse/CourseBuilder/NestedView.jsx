@@ -32,7 +32,7 @@ const NestedView = ({ handleChangeEditSectionName }) => {
         },
             token
         );
-        console.log("PRINTING AFTER DELETE SECTIOn", result);
+       
         if (result) {
             dispatch(setCourse(result))
         }

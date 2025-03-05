@@ -122,7 +122,7 @@ export default function CourseInformationForm() {
         if (currentValues.courseImage !== course.thumbnail) {
           formData.append("thumbnailImage", data.courseImage)
         }
-        console.log("Edit Form data: ", formData)
+        
         setLoading(true)
         const result = await editCourseDetails(formData, token)
         setLoading(false)
@@ -146,9 +146,7 @@ export default function CourseInformationForm() {
     formData.append("status", COURSE_STATUS.DRAFT)
     formData.append("instructions", JSON.stringify(data.courseRequirements))
     formData.append("thumbnailImage", data.courseImage)
-    for (let pair of formData.entries()) {
-      console.log(pair[0] + ':', pair[1]);
-    }
+    
     setLoading(true)
     const result = await addCourseDetails(formData, token)
     if (result) {
@@ -161,7 +159,7 @@ export default function CourseInformationForm() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="space-y-8 rounded-md border-[1px] border-richblack-700 bg-richblack-800 p-6"
+      className="space-y-8 rounded-md border-[1px] border-richblack-700 bg-richblack-800 p-6 max-sm:p-2"
     >
       {/* Course Title */}
       <div className="flex flex-col space-y-2">

@@ -17,7 +17,7 @@ export default function SidebarLink({ link, iconName }) {
     <NavLink
       to={link.path}
       onClick={() => dispatch(resetCourseState())}
-      className={`relative px-8 py-2 text-sm font-medium ${
+      className={`relative px-8 py-2 max-sm:px-2 text-sm font-medium ${
         matchRoute(link.path)
           ? "bg-yellow-800 text-yellow-50"
           : "bg-opacity-0 text-richblack-300"
@@ -28,10 +28,10 @@ export default function SidebarLink({ link, iconName }) {
           matchRoute(link.path) ? "opacity-100" : "opacity-0"
         }`}
       ></span>
-      <div className="flex items-center gap-x-2">
+      <div className="flex items-center gap-2 max-sm:flex-col">
         {/* Icon Goes Here */}
         <Icon className="text-lg" />
-        <span>{link.name}</span>
+        <span className=" max-sm:text-xs">{link.name}</span>
       </div>
     </NavLink>
   )

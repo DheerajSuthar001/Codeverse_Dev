@@ -28,7 +28,7 @@ export default function Sidebar() {
 
   return (
     <>
-      <div className="flex h-[calc(100vh-3.5rem)] min-w-[220px] flex-col border-r-[1px] border-r-richblack-700 bg-richblack-800 py-10">
+      <div className="flex h-[calc(100vh-3.5rem)]  min-w-[220px] max-sm:min-w-fit flex-col border-r-[1px] border-r-richblack-700 bg-richblack-800 py-10">
         <div className="flex flex-col">
           {sidebarLinks.map((link) => {
             if (link.type && user?.accountType !== link.type) return null
@@ -56,9 +56,10 @@ export default function Sidebar() {
             }
             className="px-8 py-2 text-sm font-medium text-richblack-300"
           >
-            <div className="flex items-center gap-x-2">
+            <div className="flex items-center gap-x-2 max-sm:flex-col">
               <VscSignOut className="text-lg" />
-              <span>Logout</span>
+              <span className=" max-sm:text-xs">Logout</span>
+              
             </div>
           </button>
         </div>

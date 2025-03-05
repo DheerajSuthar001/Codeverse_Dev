@@ -15,12 +15,12 @@ const ContactUsForm = () => {
     } = useForm();
 
     const submitContactForm = async (data) => {
-        console.log("Logging Data", data);
+        
         try {
             setLoading(true);
             // const response = await apiConnector("POST", contactusEndpoint.CONTACT_US_API, data);
             const response = { status: "OK" };
-            console.log("Logging response", response);
+           
             setLoading(false);
         }
         catch (error) {
@@ -46,7 +46,7 @@ const ContactUsForm = () => {
         <form onSubmit={handleSubmit(submitContactForm)}>
 
             <div className='flex flex-col gap-5'>
-                <div className='flex gap-5'>
+                <div className='flex gap-5 max-sm:flex-col'>
                     {/* firstName */}
                     <div className='flex flex-col gap-1'>
                         <label htmlFor='firstname' className=' text-white text-sm'>First Name</label>

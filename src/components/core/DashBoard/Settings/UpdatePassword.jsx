@@ -32,7 +32,7 @@ export default function UpdatePassword() {
   return (
     <>
       <form onSubmit={handleSubmit(submitPasswordForm)}>
-        <div className="my-10 flex flex-col gap-y-6 rounded-md border-[1px] border-richblack-700 bg-richblack-800 p-8 px-12">
+        <div className="my-10 flex flex-col gap-y-6 rounded-md border-[1px] border-richblack-700 bg-richblack-800 p-8 px-12 max-sm:px-4">
           <h2 className="text-lg font-semibold text-richblack-5">Password</h2>
           <div className="flex flex-col gap-5 lg:flex-row">
             <div className="relative flex flex-col gap-2 lg:w-[48%]">
@@ -47,7 +47,7 @@ export default function UpdatePassword() {
                 style={{
                   boxShadow: "inset 0px -1px 0px rgba(255, 255, 255, 0.18)",
                 }}
-                className="w-full rounded-[0.5rem] bg-richblack-700 p-[12px] text-richblack-5"
+                className="w-full rounded-[0.5rem] bg-richblack-700 p-[12px] text-richblack-5 max-sm:pr-12"
                 {...register("oldPassword", { required: true })}
               />
               <span

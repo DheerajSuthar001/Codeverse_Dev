@@ -199,7 +199,7 @@ const VideoDetails = () => {
                   disabled={loading}
                   onclick={() => handleLectureCompletion()}
                   text={!loading ? "Mark As Completed" : "Loading..."}
-                  customClasses="text-xl max-w-max px-4 mx-auto"
+                  customClasses="text-xl max-w-max px-4 mx-auto max-sm:text-sm"
                 />
               )}
               <IconBtn
@@ -212,7 +212,7 @@ const VideoDetails = () => {
                   }
                 }}
                 text="Rewatch"
-                customClasses="text-xl max-w-max px-4 mx-auto mt-2"
+                customClasses="text-xl max-w-max px-4 mx-auto mt-2 max-sm:text-sm"
               />
               <div className="mt-10 flex min-w-[250px] justify-center gap-x-4 text-xl">
                 {!isFirstVideo() && (

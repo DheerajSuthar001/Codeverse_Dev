@@ -21,14 +21,24 @@ const CourseSlider = ({Courses}) => {
           modules={[FreeMode, Pagination]}
           breakpoints={{
             1024: {
+              slidesPerView: 4,
+            },
+            768:{
               slidesPerView: 3,
             },
+            640:{
+              slidesPerView: 2,
+            },
+            360:{
+              slidesPerView: 1,
+            },
+
           }}
           className="max-h-[30rem]"
         >
           {Courses?.map((course, i) => (
             <SwiperSlide key={i}>
-              <Course_Card course={course} Height={"h-[250px]"} />
+              <Course_Card course={course} Height={"lg:h-[250px] max-lg:h-[200px] max-md:[h-[150px]]  max-sm:w-[300px] "} />
             </SwiperSlide>
           ))}
         </Swiper>

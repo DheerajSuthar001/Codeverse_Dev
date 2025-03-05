@@ -47,7 +47,7 @@ const LearningGridArray = [
 
 const LearningGrid = () => {
   return (
-    <div className=' w-8/12 mx-auto grid  grid-col-1 lg:grid-cols-4 mb-10 py-5'>
+    <div className=' w-8/12 mx-auto grid  grid-col-1 lg:grid-cols-4  mb-10 py-5'>
     {
         LearningGridArray.map( (card, index) => {
             return (
@@ -64,7 +64,7 @@ const LearningGrid = () => {
                 {
                     card.order < 0 
                     ? (
-                        <div className='lg:w-[90%] flex flex-col pb-5 gap-3'>
+                        <div className='lg:w-[90%] flex flex-col pb-5 gap-3 max-sm:text-center max-sm:items-center'>
                             <div className='text-4xl font-semibold'>
                                 {card.heading}
                                 <HighlightText text={card.highlightText} />

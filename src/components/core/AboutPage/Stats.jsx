@@ -16,11 +16,11 @@ const StatsComponent = () => {
                 {
                     Stats.map( (data, index) => {
                         return (
-                            <div key={index} className='flex flex-col items-center'>
-                                <h1 className='text-3xl font-bold text-richblack-50 mb-5'>
+                            <div key={index} className='flex flex-col items-center w-[20%] text-center'>
+                                <h1 className='text-3xl max-sm:text-2xl font-bold text-richblack-50 mb-5'>
                                     {data.count}
                                 </h1>
-                                <h2 className=' text-richblack-200'>
+                                <h2 className=' text-richblack-200 max-sm:text-sm'>
                                     {data.label}
                                 </h2>
                             </div>

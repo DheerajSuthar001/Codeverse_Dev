@@ -45,7 +45,7 @@ const CourseBuilderForm = () => {
         courseId: course._id,
       },token)
     }
-    console.log('update course',result)
+    
     //update values
     if(result) {
       dispatch(setCourse(result));
@@ -130,8 +130,7 @@ const CourseBuilderForm = () => {
           )}
         </div>
       </form>
-          {console.log(course?.courseContent?.length)}
-          {console.log(course)}
+          
       {course?.courseContent?.length > 0 && (
         <NestedView handleChangeEditSectionName={handleChangeEditSectionName} />
       )}

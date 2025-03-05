@@ -57,13 +57,13 @@ function CoursesTable({ courses, setCourses }) {
                         ) : (
                             courses?.map(course => {
                                 return <Tr key={course._id} className="flex gap-x-10 border-b border-richblack-800 px-6 py-8">
-                                    <Td className="flex flex-1 gap-x-4">
+                                    <Td className="flex flex-1 gap-x-4 max-lg:flex-col max-lg:gap-4">
                                         <img
                                             src={course?.thumbnail}
                                             alt={course?.courseName}
-                                            className="h-[148px] w-[220px] rounded-lg object-cover"
+                                            className="max-h-[148px] max-w-[220px] rounded-lg object-cover max-md:max-h-[700px] max-md:max-w-[120px] "
                                         />
-                                        <div className="flex flex-col justify-between">
+                                        <div className="flex flex-col justify-between gap-2">
                                             <p className="text-lg font-semibold text-richblack-5">
                                                 {course.courseName}
                                             </p>
