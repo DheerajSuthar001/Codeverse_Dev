@@ -30,7 +30,7 @@ Follow these steps to set up and run the React application locally.
 
 ### **1️⃣ Clone the Repository**  
 ```bash
-git clone https://github.com/yourusername/codeverse-frontend.git
+git clone https://github.com/DheerajSuthar001/Codeverse_Dev.git
 cd codeverse-frontend
 ```
 
@@ -87,7 +87,7 @@ We welcome contributions to enhance this **EdTech platform**. To contribute, fol
 1️⃣ **Fork the repository** on GitHub.  
 2️⃣ **Clone your forked repository** to your local machine:  
 ```bash
-git clone https://github.com/yourusername/codeverse-frontend.git
+git clone https://github.com/DheerajSuthar001/Codeverse_Dev.git
 ```
 3️⃣ **Create a new branch** for your feature or bug fix:  
 ```bash
